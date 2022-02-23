@@ -151,7 +151,9 @@ namespace Pokedex
                 }
                 img_list = img_cache;
                 img_shiny_list = img_shiny_cache;
+                dg_pkmn.IsEnabled = false;
                 await GetPokemon(fortnite.Name.ToLower());
+                dg_pkmn.IsEnabled = true;
                 COUNT = 0;
 
             }
