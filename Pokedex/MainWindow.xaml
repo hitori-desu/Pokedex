@@ -32,9 +32,9 @@
         <Label Content="Shiny:" Foreground="#D8DEE9" HorizontalAlignment="Left" Margin="38,220,0,0" VerticalAlignment="Top" Width="98" Grid.Column="1" Height="26"/>
         <ComboBox x:Name="cb_regions" HorizontalAlignment="Left" Margin="32,105,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="ComboBox_SelectionChanged" Height="22" SelectedIndex="0"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="1" Margin="65,297,0,0" VerticalAlignment="Top" Width="2"/>
-        <Button x:Name="btn_left" Content="&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="38,2,0,0" VerticalAlignment="Top" Width="38" Height="20" Grid.Row="1" Click="btn_left_Click"/>
-        <Button x:Name="btn_right" Content="&gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="148,2,0,0" VerticalAlignment="Top" Width="38" Height="20" Grid.Row="1" Click="btn_right_Click"/>
-        <Label x:Name="lbl_index" Content="" Foreground="#D8DEE9" Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="91,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.507,0.537"/>
+        <Button x:Name="btn_left" Content="&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="38,2,0,0" VerticalAlignment="Top" Width="38" Height="20" Grid.Row="1" Click="btn_left_Click" Visibility="Hidden"/>
+        <Button x:Name="btn_right" Content="&gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="148,2,0,0" VerticalAlignment="Top" Width="38" Height="20" Grid.Row="1" Click="btn_right_Click" Visibility="Hidden"/>
+        <Label x:Name="lbl_index" Content="" Foreground="#D8DEE9" Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="91,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.507,0.537" Visibility="Hidden"/>
 
     </Grid>
 </Window>

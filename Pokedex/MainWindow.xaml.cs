@@ -86,6 +86,7 @@ namespace Pokedex
             InitializeComponent();
             cb_regions.ItemsSource = Enum.GetValues(typeof(Regions));
             dg_pkmn.ItemsSource = national;
+            
 
         }
 
@@ -123,14 +124,28 @@ namespace Pokedex
                         }
                         img_pkmn.Source = new BitmapImage(new Uri($@"./sprites/{fortnite.ID}.png", UriKind.Relative));
                         img_shiny.Source = new BitmapImage(new Uri($@"./sprites/shiny/{fortnite.ID}s.png", UriKind.Relative));
-                        lbl_index.Content = $"1/{img_cache.Count}";
+                        if (img_cache.Count > 1)
+                        {
+                            lbl_index.Visibility = Visibility.Visible;
+                            btn_left.Visibility = Visibility.Visible;
+                            btn_right.Visibility = Visibility.Visible;
+                            lbl_index.Content = $"1/{img_cache.Count}";
+                        }
+                        else
+                        {
+                            lbl_index.Visibility = Visibility.Hidden;
+                            btn_left.Visibility = Visibility.Hidden;
+                            btn_right.Visibility = Visibility.Hidden;
+                        }
                         break;
                     }
                     else
                     {
                         img_pkmn.Source = new BitmapImage(new Uri($@"./sprites/{fortnite.ID}.png", UriKind.Relative));
                         img_shiny.Source = new BitmapImage(new Uri($@"./sprites/shiny/{fortnite.ID}s.png", UriKind.Relative));
-                        lbl_index.Content = "1/1";
+                        lbl_index.Visibility = Visibility.Hidden;
+                        btn_left.Visibility = Visibility.Hidden;
+                        btn_right.Visibility = Visibility.Hidden;
                     }
                     
                 }
@@ -190,7 +205,7 @@ namespace Pokedex
             PokeApiClient pokeClient = new PokeApiClient();
             Pokemon stats = await pokeClient.GetResourceAsync<Pokemon>($"{_name}");
             PokemonSpecies current = await pokeClient.GetResourceAsync<PokemonSpecies>($"{stats.Species.Name}");
-            var filtered = current.FlavorTextEntries.Where(e => e.Language.Name == "en").ToList();
+            var filtered = current.FlavorTextEntries.Where(e => e.Language.Name == "en").Where(f => f.Version.Name =="white-2").ToList();
             string cache = filtered[0].FlavorText;
             cache = cache.Replace("\n", " ").Replace("\f", " ").Replace("POKéMON", "Pokemon");
             tbox_index.Text = $"Number: #{stats.Id}\n\nName: {textInfo.ToTitleCase(stats.Name)}\n\nWeight: {stats.Weight / 10} kg\n\nHeight: {stats.Height * 10} cm\n\nEntry:\n{cache}";
