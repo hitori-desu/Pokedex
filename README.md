@@ -1,4 +1,4 @@
-# a WPF implementation of a Pokédex
+# A WPF implementation of the Pokédex
 
 This was my final project for my second grade in HTL.
 
