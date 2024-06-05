@@ -86,8 +86,6 @@ namespace Pokedex
             InitializeComponent();
             cb_regions.ItemsSource = Enum.GetValues(typeof(Regions));
             dg_pkmn.ItemsSource = national;
-            
-
         }
 
         private async void dg_pkmn_SelectionChanged(object sender, SelectionChangedEventArgs e)
